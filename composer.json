@@ -1,0 +1,49 @@
+{
+    "name": "yaman-shahbander-dev/passport-meta-claims",
+    "description": "A powerful extension for Laravel Passport, providing advanced claim customization.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PassportMetaClaim\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PassportMetaClaim\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yaman Shahbandar",
+            "email": "yaman.engineer.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^11.0|^12.0",
+        "illuminate/support": "^11.0|^12.0",
+        "laravel/passport": "^13.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0|^11.0",
+        "orchestra/testbench": "^10.3"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PassportMetaClaim\\Providers\\PassportMetaClaimServiceProvider"
+            ],
+            "aliases": {
+                "PassportMetaClaim": "PassportMetaClaim\\Facades\\PassportMetaClaim"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
