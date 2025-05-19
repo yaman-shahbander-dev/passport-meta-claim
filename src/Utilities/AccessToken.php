@@ -4,6 +4,7 @@ namespace PassportMetaClaim\Utilities;
 
 use Laravel\Passport\Bridge\AccessToken as PassportAccessToken;
 use League\OAuth2\Server\Entities\Traits\AccessTokenTrait;
+use Lcobucci\JWT\Encoding\ChainedFormatter;
 use DateTimeImmutable;
 
 class AccessToken extends PassportAccessToken
