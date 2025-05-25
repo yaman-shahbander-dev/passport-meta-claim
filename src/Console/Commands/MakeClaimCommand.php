@@ -16,7 +16,7 @@ class MakeClaimCommand extends GeneratorCommand
 
     protected function getStub()
     {
-        return __DIR__ . '/../../stubs/claim.stub';
+        return __DIR__ . '/../../Stubs/claim.stub';
     }
 
     protected function getDefaultNamespace($rootNamespace)
