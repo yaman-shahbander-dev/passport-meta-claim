@@ -30,7 +30,7 @@ class AccessToken extends PassportAccessToken
         foreach ($claimManager->getClaims() as $name => $claim) {
             $value = $this->resolveClaimValue($claim);
 
-            $jwt->withClaim($name, $value);
+            $jwt = $jwt->withClaim($name, $value); 
         }
 
         return $jwt->getToken($this->jwtConfiguration->signer(), $this->jwtConfiguration->signingKey());
