@@ -1,0 +1,17 @@
+<?php
+
+namespace {{ namespace }};
+
+class {{ class }}DummySuffix
+{
+    /**
+     * Calculate and return the claim value
+     *
+     * @return mixed Must return a JWT-compatible value (string, number, array)
+     */
+    public function __invoke()
+    {
+        // Add your claim logic here
+        return 'default-value';
+    }
+}

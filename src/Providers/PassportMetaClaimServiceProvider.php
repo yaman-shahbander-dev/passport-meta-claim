@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
 use PassportMetaClaim\Utilities\AccessToken;
 use Laravel\Passport\Bridge\AccessTokenRepository as PassportAccessTokenRepository;
+use PassportMetaClaim\Console\Commands\MakeClaimCommand;
 use PassportMetaClaim\Repositories\AccessTokenRepository;
 
 class PassportMetaClaimServiceProvider extends ServiceProvider
@@ -34,6 +35,13 @@ class PassportMetaClaimServiceProvider extends ServiceProvider
          $this->publishes([
             __DIR__ . '/../../config/passport-meta-claim.php' => config_path('passport-meta-claim.php'),
         ], 'config');
+
+        // Add command registration
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MakeClaimCommand::class
+            ]);
+        }
 
         if (method_exists(Passport::class, 'useAccessTokenEntity')) {
              // Set custom AccessToken entity
