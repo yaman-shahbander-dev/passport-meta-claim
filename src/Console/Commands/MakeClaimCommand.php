@@ -28,17 +28,6 @@ class MakeClaimCommand extends GeneratorCommand
         return $rootNamespace . str_replace('/', '\\', $path);
     }
 
-    protected function buildClass($name)
-    {
-        $stub = parent::buildClass($name);
-        
-        return str_replace(
-            'DummySuffix',
-            config('passport-meta-claim.suffix'),
-            $stub
-        );
-    }
-
     protected function getOptions()
     {
         return [
@@ -55,5 +44,21 @@ class MakeClaimCommand extends GeneratorCommand
         }
 
         return parent::qualifyClass($name);
+    }
+
+    public function handle()
+    {
+        $name = $this->argument('name');
+        
+        $suffix = config('passport-meta-claim.suffix');
+
+        // Prevent the user from including the suffix in the input
+        if (Str::endsWith($name, $suffix)) {
+            $this->error("The claim name should not include the suffix '{$suffix}'.");
+
+            return 1; 
+        }
+
+        return parent::handle();
     }
 }

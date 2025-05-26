@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-class {{ class }}DummySuffix
+class {{ class }}
 {
     /**
      * Calculate and return the claim value
